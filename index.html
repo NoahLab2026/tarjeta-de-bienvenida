@@ -8,8 +8,8 @@
 <meta property="og:description" content="Qué bonito que ya volvió. Tiene un sobrecito esperando por usted.">
 <meta property="og:url" content="https://noahlab2026.github.io/tarjeta-de-bienvenida/">
 <style>
-body:has(#card[hidden]){display:grid;place-items:center;min-height:100svh;padding:1rem}
-main:has(#card[hidden]){width:min(100%,26rem);margin:0;padding:0;background:none;border:0;box-shadow:none}
+body:has(#cover:not([hidden])){display:grid;place-items:center;min-height:100svh;padding:1rem}
+main:has(#cover:not([hidden])){width:min(100%,26rem);margin:0;padding:0;background:none;border:0;box-shadow:none}
 .envelope{position:relative;isolation:isolate;perspective:900px;width:min(100%,24rem);aspect-ratio:1.52;margin:auto;border-radius:9px;background:#d7a39d;box-shadow:0 24px 42px #763f4155}
 .note{position:absolute;z-index:1;inset:7% 8% 10%;padding:6% 5%;background:#fff9ee;border:double 3px #ad8955;border-radius:4px;text-align:center;transition:transform .58s .28s ease,opacity .3s .67s ease}
 .note strong{font-size:clamp(1.5rem,7vw,2.65rem);font-weight:normal}.note span{display:block;color:#855b32}
@@ -55,17 +55,26 @@ button.photo-seal{width:25%;top:50%;left:52%;background:transparent;border:0;box
 #card>header.ivory-cover{padding:0;overflow:hidden;outline:0;background:#fbefdb;margin-bottom:1.4rem}
 .ivory-cover img{display:block;width:100%;height:auto}
 #card details{background:#fff7e8}#card summary{background:linear-gradient(105deg,#f9edd7,#fffaed);border-color:#b49155;color:#653d28}#card article{background:#fff7e8;border-color:#b08a4c}
+
+#finale:not([hidden]){animation:letter-arrives .65s cubic-bezier(.2,.7,.2,1) both;transform-origin:50% 0}
+@keyframes letter-arrives{from{opacity:0;transform:perspective(900px) rotateX(-12deg) translateY(22px)}to{opacity:1;transform:none}}
+#finale article{position:relative;margin:0;padding:clamp(1.2rem,5vw,2.5rem);background:#fff8e9;border:double 4px #b08a4c;box-shadow:0 6px 18px #78542e25}
+#finale h2{margin:.25rem 0 1.4rem;font-size:clamp(2rem,8vw,3rem)}.letter-ornament{display:block;text-align:center;color:#91602c;font-size:1.45rem;letter-spacing:.15em}
+.letter-invite{text-align:center;margin:1.65rem 0 .5rem}.letter-invite button{display:inline-flex;align-items:center;gap:.55rem}.letter-back{background:transparent;color:#633d2d;border:1px solid #bd945b;margin-right:.35rem}
+@media(prefers-reduced-motion:reduce){#finale{animation:none!important}}
 </style>
 <main><header id="cover" class="envelope-cover"><div class="envelope photo-envelope pink-cover" id="envelope"><div class="note" aria-hidden="true"><span>♡</span><strong>Vanesita</strong></div><div class="envelope-photo" role="img" aria-label="Portada cerrada rosa con corazón dorado y lazo de satén"></div><button class="seal photo-seal" id="open" type="button" aria-label="Abrir tarjeta"></button></div><p>Toque el lazo para abrir su cartita.</p></header><section id="card" hidden><header class="ivory-cover"><img src="interior-marfil.jpg" width="579" height="387" alt="Con usted, Vanesita. Me hizo falta esa miradita suya. Qué bonito volver a verla."></header>
 <small>Toque cada ventanita para abrirla.</small>
 <details><summary>Algo bonito de sus vacaciones</summary><p>Que pude verla. Me gustó mucho compartir esos ratitos con usted. Todavía me da una sonrisita cuando me acuerdo.</p></details>
 <details><summary>Algo que me alegró hoy</summary><p>Saber que ya volvía al trabajo. Desde la mañana venía pensando en qué momento nos íbamos a cruzar. Tenía ganas de volver a encontrarme con esa miradita suya entre tanto corre corre.</p></details>
 <details><summary>Algo que le quería decir</summary><p>Me gusta eso de verla varias veces al día, aunque a veces solo nos dé tiempo de mirarnos y seguir caminando. Para usted tal vez sea un segundito, Vanesita, pero a mí me deja sonriendo un buen rato.</p></details>
-<article><h2>Vanesita,</h2>
+<div class="letter-invite"><button id="open-final" type="button"><span aria-hidden="true">✉</span> Abrir la última carta</button></div>
+<footer><button type="button" data-close>Cerrar</button></footer></section>
+<section id="finale" hidden aria-labelledby="final-title"><article><span class="letter-ornament" aria-hidden="true">✧ ♡ ✧</span><h2 id="final-title" tabindex="-1">Vanesita,</h2>
 <p>Que Dios me la bendiga mucho en su regreso al trabajo. Le deseo una mañana tranquila, una semana que empiece bonito y mucha paz para ir resolviendo cada pendiente a su tiempo. Que Dios le dé claridad para tomar decisiones, paciencia para los días pesados y sabiduría para reconocer todo lo bueno que hay en lo que usted hace.</p>
 <p>También le deseo que cada esfuerzo suyo dé fruto y que pueda sentirse orgullosa de lo que va logrando, incluso de esas cositas que parecen pequeñas y que cuestan tanto. Y cuando termine su jornada, que pueda llegar a casa, respirar tranquila y descansar con el corazón en paz.</p>
 <p>Que Dios la cuide en su camino de ida y de vuelta, le dé mucha salud y le abra puertas para todo lo bueno que usted sueña. Le deseo un regreso lleno de bendiciones, Vanesita. Se lo deseo con muchísimo cariño. 🤍</p></article>
-<footer><button id="close" type="button">Cerrar</button></footer></section></main>
+<footer><button class="letter-back" id="back-to-card" type="button">Volver a las ventanitas</button><button type="button" data-close>Cerrar</button></footer></section></main>
 <script>
 const card = document.getElementById('card');
 const openButton = document.getElementById('open');
@@ -82,7 +91,21 @@ openButton.addEventListener('click', () => {
     window.scrollTo(0, 0);
   }, reducedMotion ? 0 : 950);
 });
-document.getElementById('close').addEventListener('click', () => {
+const finale = document.getElementById('finale');
+const openFinal = document.getElementById('open-final');
+openFinal.addEventListener('click', () => {
+  card.hidden = true;
+  finale.hidden = false;
+  document.getElementById('final-title').focus({preventScroll: true});
+  window.scrollTo(0, 0);
+});
+document.getElementById('back-to-card').addEventListener('click', () => {
+  finale.hidden = true;
+  card.hidden = false;
+  openFinal.focus();
+});
+function closeInvitation() {
+  finale.hidden = true;
   card.querySelectorAll('details').forEach(detail => { detail.open = false; });
   card.hidden = true;
   cover.hidden = false;
@@ -90,5 +113,6 @@ document.getElementById('close').addEventListener('click', () => {
   openButton.disabled = false;
   openButton.focus();
   window.scrollTo(0, 0);
-});
+}
+document.querySelectorAll('[data-close]').forEach(button => button.addEventListener('click', closeInvitation));
 </script></html>
