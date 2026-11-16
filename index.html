@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Una cartita para Vanesita 🤍</title>
 <meta name="description" content="Vanesita, qué bonito que ya volvió. Abra el sobre para leer su cartita.">
+<meta property="og:image" content="https://noahlab2026.github.io/tarjeta-de-bienvenida/ventanitas.jpg">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_SV">
 <meta property="og:title" content="Una cartita para Vanesita 🤍">
@@ -34,8 +35,20 @@ button.seal{background:radial-gradient(circle at 35% 27%,#e6be72,#a57234 80%);co
 #card>header i{font-size:1.9rem;color:#805019}#card>header h1,#card>header p{font-style:italic}.sprigs{position:absolute;inset:15px 18px auto;display:flex;justify-content:space-between;color:#81551f;font-size:1.6rem;pointer-events:none}.sprigs span:last-child{transform:scaleX(-1)}
 .ribbon{position:absolute;bottom:16px;left:0;right:0;height:10px;background:linear-gradient(#f7d6b7,#bd8d76 48%,#e9b79e 82%,#ad7e64);box-shadow:0 2px 4px #67433240}.ribbon::before,.ribbon::after{content:'';position:absolute;bottom:-5px;width:34px;height:17px;border:5px solid #eec4a6;box-shadow:inset 0 1px 3px #875c43,0 2px 3px #875c4380}.ribbon::before{right:50%;border-radius:70% 30% 60% 50%;transform:rotate(22deg)}.ribbon::after{left:50%;border-radius:30% 70% 50% 60%;transform:rotate(-22deg)}
 details{border:0;border-radius:2px;background:#fff7e9;box-shadow:0 3px 8px #75483926;overflow:visible}summary{border:1px solid #bb8872;border-radius:2px;background:repeating-linear-gradient(115deg,#9257370c 0 1px,transparent 1px 4px),linear-gradient(100deg,#e8b5a7,#f4d2c4);font-style:italic;box-shadow:0 3px 6px #94605630}summary::after{color:#81551f}details p{padding:0 0 .85rem}article{border:double 3px #ae8142;padding:1rem clamp(.85rem,4vw,1.55rem);background:#fff8ea}article h2{font-style:italic;margin-top:0}
+
+body{background:radial-gradient(ellipse at 30% 15%,#fff4e3,#e1c6b7 80%)}
+.envelope.photo-envelope{width:min(88vw,26rem);aspect-ratio:226 / 235;background:none;box-shadow:none}
+.envelope-photo{position:absolute;z-index:2;inset:0;width:100%;height:100%;object-fit:cover;border-radius:5px;box-shadow:0 20px 42px #63372655;transition:transform .7s ease,opacity .35s .55s ease}
+button.photo-seal{width:25%;top:50%;left:52%;background:transparent;border:0;box-shadow:none;outline-offset:-8px}
+.photo-envelope .note{inset:18% 10% 22%;display:grid;place-content:center;border:double 4px #ab7941;transform:translateY(0);transition:transform .62s .18s ease,opacity .3s .7s ease}
+.photo-envelope.opening .envelope-photo{transform:translateY(12%) rotate(-4deg);opacity:0}
+.photo-envelope.opening .note{transform:translateY(-24%);opacity:1}
+#card>header.photo-cover{display:grid;grid-template-columns:46% 54%;align-items:stretch;padding:0;overflow:hidden;outline:0;background:#f2d4c3;text-align:left}
+.photo-panel{position:relative;min-height:12rem;overflow:hidden;background:#d39c90}.photo-panel img{display:block;width:217.4%;max-width:none;height:100%;position:absolute;left:0;top:0;object-fit:fill}
+.cover-copy{position:relative;margin:8px;padding:1rem .5rem;display:grid;align-content:center;justify-items:center;text-align:center;border:1px solid #ad7d50;color:#684236}.cover-copy h1{font-size:clamp(1.35rem,7vw,3.3rem);margin:.2em 0;overflow-wrap:anywhere}.cover-copy p{font-size:clamp(.9rem,3.5vw,1.2rem);line-height:1.3}
+#card details{margin:.8rem 0 1rem}#card summary{position:relative;padding:1rem 1.25rem;box-shadow:0 4px 4px #79503942;border-color:#d4a794}#card summary::after{content:'♡';color:#885a32}#card details[open] summary::after{content:'−'}
 </style>
-<main><header id="cover" class="envelope-cover"><div class="envelope" id="envelope"><div class="note" aria-hidden="true"><span>✧</span><strong>Vanesita</strong></div><div class="pocket" aria-hidden="true"></div><div class="flap" aria-hidden="true"></div><button class="seal" id="open" type="button" aria-label="Abrir tarjeta"><span aria-hidden="true">♡</span></button></div><p>Toque el sello para abrir el sobre.</p></header><section id="card" hidden><header><div class="sprigs" aria-hidden="true"><span>❦</span><span>❦</span></div><div class="ribbon" aria-hidden="true"></div><i aria-hidden="true">✧ ♡ ✧</i><h1>Vanesita</h1><p>Qué bonito que ya volvió.</p></header>
+<main><header id="cover" class="envelope-cover"><div class="envelope photo-envelope" id="envelope"><div class="note" aria-hidden="true"><span>♡</span><strong>Vanesita</strong></div><img class="envelope-photo" src="sobre.jpg" width="226" height="235" alt="Sobre de papel marfil con un sello dorado en forma de corazón"><button class="seal photo-seal" id="open" type="button" aria-label="Abrir tarjeta"></button></div><p>Toque el sello para abrir el sobre.</p></header><section id="card" hidden><header class="photo-cover"><div class="photo-panel"><img src="ventanitas.jpg" width="554" height="384" alt="" aria-hidden="true"></div><div class="cover-copy"><i aria-hidden="true">♡</i><h1>Vanesita</h1><p>Qué bonito que ya volvió.</p></div></header>
 <small>Toque cada ventanita para abrirla.</small>
 <details><summary>Algo bonito de sus vacaciones</summary><p>Que pude verla. Me gustó mucho compartir esos ratitos con usted. Todavía me da una sonrisita cuando me acuerdo.</p></details>
 <details><summary>Algo que me alegró hoy</summary><p>Saber que ya volvía al trabajo. Desde la mañana venía pensando en qué momento nos íbamos a cruzar. Tenía ganas de volver a encontrarme con esa miradita suya entre tanto corre corre.</p></details>
