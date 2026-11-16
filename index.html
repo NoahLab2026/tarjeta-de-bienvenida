@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Bienvenida de vuelta</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at top,#fae8df,#eac0b9);color:#54302e;font:1.12rem/1.6 Georgia,serif}main{width:min(92%,40rem);margin:clamp(1.25rem,6vw,4rem) auto;padding:clamp(1.25rem,6vw,3.5rem);background:#fff9ee;border:double 5px #ac8550;border-radius:8px;box-shadow:0 22px 65px #713c3733}header,footer{text-align:center}header{padding:1.2rem 0}h1{font-size:clamp(2.65rem,10vw,5rem);font-weight:400;line-height:1;margin:.4em 0 .2em}header p{margin:.4em 0}i{color:#885a2c;font-size:1.6rem}button,summary{font:inherit;cursor:pointer}button{background:#713e43;color:#fff9ee;border:0;border-radius:99px;padding:.65rem 1.6rem;margin-top:1rem}button:focus-visible,summary:focus-visible{outline:3px solid #986333;outline-offset:4px}details{margin:.8rem 0;border:1px solid #bd8b73;border-radius:8px;background:#fffdfa;overflow:hidden}summary{padding:.9rem 1rem;background:linear-gradient(120deg,#efd0c9,#f7e4da);list-style:none;display:flex;justify-content:space-between;gap:.5rem}summary::-webkit-details-marker{display:none}summary::after{content:'+'}details[open] summary::after{content:'−'}details p{margin:1rem}article{margin-top:2rem;padding-top:1rem;border-top:1px solid #ba925b}h2{font-weight:400}
+</style>
+<main><header><i aria-hidden="true">✧ ♡ ✧</i><h1>Vanesita</h1><p>Qué bonito que ya volvió.</p><button id="open" type="button">Abrir tarjeta</button></header>
+<section id="card" hidden><small>Toque cada ventanita para abrirla.</small>
+<details><summary>Algo bonito de sus vacaciones</summary><p>Que pude verla. Me gustó mucho compartir esos ratitos con usted. Todavía me da una sonrisita cuando me acuerdo.</p></details>
+<details><summary>Algo que me alegró hoy</summary><p>Saber que ya volvía al trabajo. Desde la mañana venía pensando en qué momento nos íbamos a cruzar. Tenía ganas de volver a encontrarme con esa miradita suya entre tanto corre corre.</p></details>
+<details><summary>Algo que le quería decir</summary><p>Me gusta eso de verla varias veces al día, aunque a veces solo nos dé tiempo de mirarnos y seguir caminando. Para usted tal vez sea un segundito, Vanesita, pero a mí me deja sonriendo un buen rato.</p></details>
+<article><h2>Vanesita,</h2>
+<p>Que Dios me la bendiga mucho en su regreso al trabajo. Le deseo una mañana tranquila, una semana que empiece bonito y mucha paz para ir resolviendo cada pendiente a su tiempo. Que Dios le dé claridad para tomar decisiones, paciencia para los días pesados y sabiduría para reconocer todo lo bueno que hay en lo que usted hace.</p>
+<p>También le deseo que cada esfuerzo suyo dé fruto y que pueda sentirse orgullosa de lo que va logrando, incluso de esas cositas que parecen pequeñas y que cuestan tanto. Y cuando termine su jornada, que pueda llegar a casa, respirar tranquila y descansar con el corazón en paz.</p>
+<p>Que Dios la cuide en su camino de ida y de vuelta, le dé mucha salud y le abra puertas para todo lo bueno que usted sueña. Le deseo un regreso lleno de bendiciones, Vanesita. Se lo deseo con muchísimo cariño. 🤍</p></article>
+<footer><button id="close" type="button">Cerrar</button></footer></section></main>
+<script>
+const card = document.getElementById('card');
+const openButton = document.getElementById('open');
+openButton.addEventListener('click', () => {
+  card.hidden = false;
+  openButton.hidden = true;
+  card.querySelector('summary').focus();
+});
+document.getElementById('close').addEventListener('click', () => {
+  card.querySelectorAll('details').forEach(detail => { detail.open = false; });
+  card.hidden = true;
+  openButton.hidden = false;
+  openButton.focus();
+  window.scrollTo(0, 0);
+});
+</script></html>
